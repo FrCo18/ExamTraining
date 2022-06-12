@@ -13,5 +13,23 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="RealEstateSet">
+      <EntityTypeMapping TypeName="WFTutorialModel.RealEstateSet">
+        <MappingFragment StoreEntitySet="RealEstateSet">
+          <ScalarProperty Name="floor" ColumnName="floor" />
+          <ScalarProperty Name="rooms" ColumnName="rooms" />
+          <ScalarProperty Name="total_floors" ColumnName="total_floors" />
+          <ScalarProperty Name="total_area" ColumnName="total_area" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="coordinate_longtitude" ColumnName="coordinate_longtitude" />
+          <ScalarProperty Name="coordinate_latitude" ColumnName="coordinate_latitude" />
+          <ScalarProperty Name="address_number" ColumnName="address_number" />
+          <ScalarProperty Name="address_house" ColumnName="address_house" />
+          <ScalarProperty Name="address_street" ColumnName="address_street" />
+          <ScalarProperty Name="address_city" ColumnName="address_city" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

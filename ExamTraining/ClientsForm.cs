@@ -14,10 +14,9 @@ namespace ExamTraining
 
         private void showClients()
         {
-            lvClients.Items.Clear();
+            listViewClient.Items.Clear();
 
             var clients = Program.db.ClientsSet;
-            List<ListViewItem> list = new List<ListViewItem>();
 
             foreach (var client in clients)
             {
@@ -29,11 +28,13 @@ namespace ExamTraining
                 client.phone,
                 client.email
                 });
-                lvClients.Items.Add(lvItem);
+
+                lvItem.Tag = client;
+                listViewClient.Items.Add(lvItem);
 
             }
 
-            lvClients.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            listViewClient.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
         private bool fieldsIsNotEmpty()
@@ -77,6 +78,46 @@ namespace ExamTraining
             else
             {
                 MessageBox.Show("Не все поля заполнены!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (listViewClient.SelectedItems.Count == 1)
+            {
+                ClientsSet client = listViewClient.SelectedItems[0].Tag as ClientsSet;
+                client.phone = numericPhone.Value.ToString();
+                client.first_name = txtFirstName.Text;
+                client.last_name = txtLastName.Text;
+                client.middle_name = txtMiddleName.Text;
+                client.email = txtEmail.Text;
+
+                Program.db.SaveChanges();
+                showClients();
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (listViewClient.SelectedItems.Count == 1)
+            {
+                var client = listViewClient.SelectedItems[0].Tag as ClientsSet;
+                Program.db.ClientsSet.Remove(client);
+                Program.db.SaveChanges();
+                showClients();
+            }
+        }
+
+        private void listViewClient_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listViewClient.SelectedItems.Count == 1)
+            {
+                ClientsSet client = listViewClient.SelectedItems[0].Tag as ClientsSet;
+                txtFirstName.Text = client.first_name;
+                txtEmail.Text = client.email;
+                txtLastName.Text = client.last_name;
+                txtMiddleName.Text = client.middle_name;
+                numericPhone.Value = Convert.ToInt64(client.phone);
             }
         }
     }

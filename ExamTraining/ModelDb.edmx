@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище WFTutorialModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище WFTutorialModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ClientsSet">
           <Key>
             <PropertyRef Name="id" />
@@ -16,11 +16,28 @@
           <Property Name="email" Type="varchar" MaxLength="300" />
           <Property Name="phone" Type="varchar(max)" />
         </EntityType>
+        <EntityType Name="RealEstateSet">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="address_city" Type="varchar(max)" />
+          <Property Name="address_street" Type="varchar(max)" />
+          <Property Name="address_house" Type="varchar(max)" />
+          <Property Name="address_number" Type="varchar(max)" />
+          <Property Name="coordinate_latitude" Type="float" />
+          <Property Name="coordinate_longtitude" Type="float" />
+          <Property Name="type" Type="int" Nullable="false" />
+          <Property Name="total_area" Type="float" />
+          <Property Name="total_floors" Type="int" />
+          <Property Name="rooms" Type="int" />
+          <Property Name="floor" Type="int" />
+        </EntityType>
         <EntityContainer Name="Хранилище WFTutorialModelContainer">
           <EntitySet Name="ClientsSet" EntityType="Self.ClientsSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RealEstateSet" EntityType="Self.RealEstateSet" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="WFTutorialModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -37,7 +54,25 @@
         </EntityType>
         <EntityContainer Name="WFTutorialEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ClientsSet" EntityType="Self.ClientsSet" />
+          <EntitySet Name="RealEstateSet" EntityType="WFTutorialModel.RealEstateSet" />
         </EntityContainer>
+        <EntityType Name="RealEstateSet">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="address_city" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="address_street" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="address_house" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="address_number" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="coordinate_latitude" Type="Double" />
+          <Property Name="coordinate_longtitude" Type="Double" />
+          <Property Name="type" Type="Int32" Nullable="false" />
+          <Property Name="total_area" Type="Double" />
+          <Property Name="total_floors" Type="Int32" />
+          <Property Name="rooms" Type="Int32" />
+          <Property Name="floor" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -53,6 +88,24 @@
                 <ScalarProperty Name="middle_name" ColumnName="middle_name" />
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="phone" ColumnName="phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RealEstateSet">
+            <EntityTypeMapping TypeName="WFTutorialModel.RealEstateSet">
+              <MappingFragment StoreEntitySet="RealEstateSet">
+                <ScalarProperty Name="floor" ColumnName="floor" />
+                <ScalarProperty Name="rooms" ColumnName="rooms" />
+                <ScalarProperty Name="total_floors" ColumnName="total_floors" />
+                <ScalarProperty Name="total_area" ColumnName="total_area" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="coordinate_longtitude" ColumnName="coordinate_longtitude" />
+                <ScalarProperty Name="coordinate_latitude" ColumnName="coordinate_latitude" />
+                <ScalarProperty Name="address_number" ColumnName="address_number" />
+                <ScalarProperty Name="address_house" ColumnName="address_house" />
+                <ScalarProperty Name="address_street" ColumnName="address_street" />
+                <ScalarProperty Name="address_city" ColumnName="address_city" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

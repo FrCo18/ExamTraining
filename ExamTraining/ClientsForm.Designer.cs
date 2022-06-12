@@ -28,16 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lvClients = new System.Windows.Forms.ListView();
             this.btnCreate = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.first_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.last_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.middle_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.phone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.email = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.txtMiddleName = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
@@ -48,26 +41,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.listViewClient = new System.Windows.Forms.ListView();
+            this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.FirstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.LastName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.MIddleName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Phone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Email = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.numericPhone)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lvClients
-            // 
-            this.lvClients.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.ID,
-            this.first_name,
-            this.last_name,
-            this.middle_name,
-            this.phone,
-            this.email});
-            this.lvClients.GridLines = true;
-            this.lvClients.HideSelection = false;
-            this.lvClients.Location = new System.Drawing.Point(253, 12);
-            this.lvClients.Name = "lvClients";
-            this.lvClients.Size = new System.Drawing.Size(661, 327);
-            this.lvClients.TabIndex = 0;
-            this.lvClients.UseCompatibleStateImageBehavior = false;
-            this.lvClients.View = System.Windows.Forms.View.Details;
             // 
             // btnCreate
             // 
@@ -87,6 +69,7 @@
             this.btnEdit.TabIndex = 2;
             this.btnEdit.Text = "Изменить";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDelete
             // 
@@ -96,36 +79,7 @@
             this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "Удалить";
             this.btnDelete.UseVisualStyleBackColor = true;
-            // 
-            // ID
-            // 
-            this.ID.Text = "ID";
-            this.ID.Width = 95;
-            // 
-            // first_name
-            // 
-            this.first_name.Text = "Имя";
-            this.first_name.Width = 118;
-            // 
-            // last_name
-            // 
-            this.last_name.Text = "Фамилия";
-            this.last_name.Width = 115;
-            // 
-            // middle_name
-            // 
-            this.middle_name.Text = "Отчество";
-            this.middle_name.Width = 138;
-            // 
-            // phone
-            // 
-            this.phone.Text = "Телефон";
-            this.phone.Width = 166;
-            // 
-            // email
-            // 
-            this.email.Text = "Почта";
-            this.email.Width = 165;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // txtFirstName
             // 
@@ -214,11 +168,62 @@
             this.label5.TabIndex = 14;
             this.label5.Text = "Почта";
             // 
+            // listViewClient
+            // 
+            this.listViewClient.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ID,
+            this.FirstName,
+            this.LastName,
+            this.MIddleName,
+            this.Phone,
+            this.Email});
+            this.listViewClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listViewClient.GridLines = true;
+            this.listViewClient.HideSelection = false;
+            this.listViewClient.Location = new System.Drawing.Point(356, 13);
+            this.listViewClient.Margin = new System.Windows.Forms.Padding(4);
+            this.listViewClient.Name = "listViewClient";
+            this.listViewClient.Size = new System.Drawing.Size(653, 301);
+            this.listViewClient.TabIndex = 15;
+            this.listViewClient.UseCompatibleStateImageBehavior = false;
+            this.listViewClient.View = System.Windows.Forms.View.Details;
+            this.listViewClient.SelectedIndexChanged += new System.EventHandler(this.listViewClient_SelectedIndexChanged);
+            // 
+            // ID
+            // 
+            this.ID.Text = "ID";
+            // 
+            // FirstName
+            // 
+            this.FirstName.Text = "Имя";
+            this.FirstName.Width = 80;
+            // 
+            // LastName
+            // 
+            this.LastName.Text = "Фамилия";
+            this.LastName.Width = 87;
+            // 
+            // MIddleName
+            // 
+            this.MIddleName.Text = "Отчество";
+            this.MIddleName.Width = 76;
+            // 
+            // Phone
+            // 
+            this.Phone.Text = "Телефон";
+            this.Phone.Width = 71;
+            // 
+            // Email
+            // 
+            this.Email.Text = "Почта";
+            this.Email.Width = 141;
+            // 
             // ClientsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(926, 489);
+            this.ClientSize = new System.Drawing.Size(1094, 486);
+            this.Controls.Add(this.listViewClient);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -232,7 +237,6 @@
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnCreate);
-            this.Controls.Add(this.lvClients);
             this.Name = "ClientsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Клиент";
@@ -243,14 +247,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ListView lvClients;
-        private System.Windows.Forms.ColumnHeader ID;
-        private System.Windows.Forms.ColumnHeader first_name;
-        private System.Windows.Forms.ColumnHeader last_name;
-        private System.Windows.Forms.ColumnHeader middle_name;
-        private System.Windows.Forms.ColumnHeader phone;
-        private System.Windows.Forms.ColumnHeader email;
         private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
@@ -264,5 +260,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ListView listViewClient;
+        private System.Windows.Forms.ColumnHeader ID;
+        private System.Windows.Forms.ColumnHeader FirstName;
+        private System.Windows.Forms.ColumnHeader LastName;
+        private System.Windows.Forms.ColumnHeader MIddleName;
+        private System.Windows.Forms.ColumnHeader Phone;
+        private System.Windows.Forms.ColumnHeader Email;
     }
 }

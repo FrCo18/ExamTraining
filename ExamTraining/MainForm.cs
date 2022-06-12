@@ -15,5 +15,11 @@ namespace ExamTraining
             ClientsForm frm = new ClientsForm();
             frm.ShowDialog();
         }
+
+        private void btnObjRealStates_Click(object sender, EventArgs e)
+        {
+            RealEstateForm frm = new RealEstateForm();
+            frm.ShowDialog();
+        }
     }
 }

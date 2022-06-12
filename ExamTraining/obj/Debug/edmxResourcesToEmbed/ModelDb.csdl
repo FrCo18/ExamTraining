@@ -13,5 +13,23 @@
   </EntityType>
   <EntityContainer Name="WFTutorialEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="ClientsSet" EntityType="Self.ClientsSet" />
+    <EntitySet Name="RealEstateSet" EntityType="WFTutorialModel.RealEstateSet" />
   </EntityContainer>
+  <EntityType Name="RealEstateSet">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="address_city" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="address_street" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="address_house" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="address_number" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="coordinate_latitude" Type="Double" />
+    <Property Name="coordinate_longtitude" Type="Double" />
+    <Property Name="type" Type="Int32" Nullable="false" />
+    <Property Name="total_area" Type="Double" />
+    <Property Name="total_floors" Type="Int32" />
+    <Property Name="rooms" Type="Int32" />
+    <Property Name="floor" Type="Int32" />
+  </EntityType>
 </Schema>

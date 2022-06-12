@@ -76,6 +76,7 @@
             this.btnObjRealStates.TabIndex = 3;
             this.btnObjRealStates.Text = "Объекты недвижимости";
             this.btnObjRealStates.UseVisualStyleBackColor = true;
+            this.btnObjRealStates.Click += new System.EventHandler(this.btnObjRealStates_Click);
             // 
             // btnProposals
             // 
@@ -104,7 +105,7 @@
             this.btnTransactions.Text = "Сделки";
             this.btnTransactions.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -116,7 +117,7 @@
             this.Controls.Add(this.btnRieltors);
             this.Controls.Add(this.btnClients);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Esoft";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

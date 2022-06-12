@@ -11,7 +11,25 @@
     <Property Name="email" Type="varchar" MaxLength="300" />
     <Property Name="phone" Type="varchar(max)" />
   </EntityType>
+  <EntityType Name="RealEstateSet">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="address_city" Type="varchar(max)" />
+    <Property Name="address_street" Type="varchar(max)" />
+    <Property Name="address_house" Type="varchar(max)" />
+    <Property Name="address_number" Type="varchar(max)" />
+    <Property Name="coordinate_latitude" Type="float" />
+    <Property Name="coordinate_longtitude" Type="float" />
+    <Property Name="type" Type="int" Nullable="false" />
+    <Property Name="total_area" Type="float" />
+    <Property Name="total_floors" Type="int" />
+    <Property Name="rooms" Type="int" />
+    <Property Name="floor" Type="int" />
+  </EntityType>
   <EntityContainer Name="Хранилище WFTutorialModelContainer">
     <EntitySet Name="ClientsSet" EntityType="Self.ClientsSet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RealEstateSet" EntityType="Self.RealEstateSet" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

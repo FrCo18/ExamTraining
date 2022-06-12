@@ -16,3 +16,4 @@ E:\Колледж\Подготовка к выпускному экзамену\
 E:\Колледж\Подготовка к выпускному экзамену\1. Компания eSoft\ExamTraining\ExamTraining\obj\Debug\ExamTraining.pdb
 E:\Колледж\Подготовка к выпускному экзамену\1. Компания eSoft\ExamTraining\ExamTraining\obj\Debug\ExamTraining.ClientsForm.resources
 E:\Колледж\Подготовка к выпускному экзамену\1. Компания eSoft\ExamTraining\ExamTraining\obj\Debug\ExamTraining.MainForm.resources
+E:\Колледж\Подготовка к выпускному экзамену\1. Компания eSoft\ExamTraining\ExamTraining\obj\Debug\ExamTraining.RealEstateForm.resources
